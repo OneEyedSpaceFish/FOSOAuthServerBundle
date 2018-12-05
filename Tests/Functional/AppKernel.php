@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 namespace FOS\OAuthServerBundle\Tests\Functional;
 
+use Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Kernel;
 
@@ -31,6 +32,10 @@ class AppKernel extends Kernel
 
         if ('orm' === $this->getEnvironment()) {
             $bundles[] = new \Doctrine\Bundle\DoctrineBundle\DoctrineBundle();
+        }
+
+        if ('mongodb' === $this->getEnvironment()) {
+            $bundles[] = new DoctrineMongoDBBundle();
         }
 
         return $bundles;

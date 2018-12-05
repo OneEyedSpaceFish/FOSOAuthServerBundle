@@ -25,6 +25,7 @@
     "require-dev": {
         "doctrine/doctrine-bundle": "~1.0",
         "doctrine/mongodb-odm": "~1.0",
+        "doctrine/mongodb-odm-bundle": "^3.5",
         "doctrine/orm": "~2.2",
         "phing/phing": "~2.4",
         "php-mock/php-mock-phpunit": "~1.0|~2.0",

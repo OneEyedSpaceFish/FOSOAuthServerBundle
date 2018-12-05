@@ -37,6 +37,7 @@ class BootTest extends TestCase
     {
         return [
             ['orm'],
+            ['mongodb'],
         ];
     }
 }

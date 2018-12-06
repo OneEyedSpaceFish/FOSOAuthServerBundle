@@ -7,6 +7,8 @@ doctrine_mongodb:
             server: mongodb://localhost:27017
     document_managers:
         default:
+            database: fos-oauth-server-bundle
+            logging: false
             mappings:
                 TestBundle: ~
 

@@ -5,6 +5,12 @@
     "keywords": ["oauth", "oauth2", "server"],
     "homepage": "http://friendsofsymfony.github.com",
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "/Users/abraun/Code/doctrine/DoctrineMongoDBBundle"
+        }
+    ],
     "authors": [
         {
           "name": "Arnaud Le Blanc",

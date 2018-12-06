@@ -26,3 +26,8 @@ security:
             pattern:    ^/
             fos_oauth:  true
             stateless:  true
+
+services:
+    test.fos_oauth_server.client_manager.default:
+        alias: fos_oauth_server.client_manager.default
+        public: true

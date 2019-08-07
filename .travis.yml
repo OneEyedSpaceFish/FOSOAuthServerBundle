@@ -3,12 +3,10 @@ language: php
 sudo: false
 
 php:
-  - 5.5
-  - 5.6
-  - hhvm
-  - 7.0
   - 7.1
   - 7.2
+  - 7.3
+  - 7.4snapshot
 
 service:
   - mongodb
@@ -16,24 +14,17 @@ service:
 matrix:
   fast_finish: true
   include:
-    - php: 5.6
-      env: SYMFONY_VERSION=2.8.*
-    - php: 5.6
-      env: SYMFONY_VERSION=3.4.* COVERAGE=true
     # test the latest release (including beta releases)
-    - php: 7.1
+    - php: 7.3
       env: SYMFONY_VERSION=2.8.* COVERAGE=true
-    - php: 7.1
+    - php: 7.3
       env: SYMFONY_VERSION=3.4.* COVERAGE=true
-    - php: 7.2
-      env: SYMFONY_VERSION=2.8.* COVERAGE=true
-    - php: 7.2
-      env: SYMFONY_VERSION=3.4.* COVERAGE=true
-    - php: 7.2
+    - php: 7.3
+      env: SYMFONY_VERSION=4.3.* COVERAGE=true
+    - php: 7.3
       env: DEPENDENCIES=beta
   allow_failures:
-    - php: hhvm
-    - php: 7.0
+    - php: 7.4snapshot
 
 cache:
   directories:

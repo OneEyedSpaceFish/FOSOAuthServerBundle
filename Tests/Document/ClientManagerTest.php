@@ -12,10 +12,10 @@ use FOS\OAuthServerBundle\Model\ClientInterface;
  * @package FOS\OAuthServerBundle\Tests\Entity
  * @author Nikola Petkanski <nikola@petkanski.com>
  */
-class ClientManagerTest extends \PHPUnit_Framework_TestCase
+class ClientManagerTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|DocumentManager
+     * @var \PHPUnit\Framework\MockObject\MockObject|DocumentManager
      */
     protected $documentManager;
 
@@ -25,7 +25,7 @@ class ClientManagerTest extends \PHPUnit_Framework_TestCase
     protected $className;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|DocumentRepository
+     * @var \PHPUnit\Framework\MockObject\MockObject|DocumentRepository
      */
     protected $repository;
 
@@ -34,7 +34,7 @@ class ClientManagerTest extends \PHPUnit_Framework_TestCase
      */
     protected $instance;
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!class_exists('\Doctrine\ODM\MongoDB\DocumentManager')) {
             $this->markTestSkipped('Doctrine MongoDB ODM has to be installed for this test to run.');

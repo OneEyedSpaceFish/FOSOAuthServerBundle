@@ -26,7 +26,7 @@ class AuthorizeFormTypeTest extends TypeTestCase
      */
     protected $instance;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -71,7 +71,7 @@ class AuthorizeFormTypeTest extends TypeTestCase
 
     public function testConfigureOptionsWillSetDefaultsOnTheOptionsResolver()
     {
-        /** @var \PHPUnit_Framework_MockObject_MockObject|OptionsResolver $resolver */
+        /** @var \PHPUnit\Framework\MockObject\MockObject|OptionsResolver $resolver */
         $resolver = $this->getMockBuilder(OptionsResolver::class)
             ->disableOriginalConstructor()
             ->getMock()

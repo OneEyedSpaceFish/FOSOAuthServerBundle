@@ -15,14 +15,14 @@ use Symfony\Component\DependencyInjection\Reference;
  * @package FOS\OAuthServerBundle\Tests\DependencyInjection\Compiler
  * @author Nikola Petkanski <nikola@petkanski.com>
  */
-class GrantExtensionsCompilerPassTest extends \PHPUnit_Framework_TestCase
+class GrantExtensionsCompilerPassTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var GrantExtensionsCompilerPass
      */
     protected $instance;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->instance = new GrantExtensionsCompilerPass();
 
@@ -181,7 +181,8 @@ class GrantExtensionsCompilerPassTest extends \PHPUnit_Framework_TestCase
             }
         }
 
-        $this->setExpectedException(InvalidArgumentException::class, $exceptionMessage);
+        $this->expectException(InvalidArgumentException::class);
+        $this->expectExceptionMessage($exceptionMessage);
 
         $this->assertNull($this->instance->process($container));
     }

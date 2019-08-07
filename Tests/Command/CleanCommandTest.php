@@ -17,7 +17,7 @@ use FOS\OAuthServerBundle\Model\TokenManagerInterface;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 
-class CleanCommandTest extends \PHPUnit_Framework_TestCase
+class CleanCommandTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var CleanCommand
@@ -25,24 +25,24 @@ class CleanCommandTest extends \PHPUnit_Framework_TestCase
     private $command;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|TokenManagerInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|TokenManagerInterface
      */
     private $accessTokenManager;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|TokenManagerInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|TokenManagerInterface
      */
     private $refreshTokenManager;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|AuthCodeManagerInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|AuthCodeManagerInterface
      */
     private $authCodeManager;
 
     /**
      * {@inheritdoc}
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->accessTokenManager = $this->getMockBuilder(TokenManagerInterface::class)->disableOriginalConstructor()->getMock();
         $this->refreshTokenManager = $this->getMockBuilder(TokenManagerInterface::class)->disableOriginalConstructor()->getMock();
@@ -84,8 +84,8 @@ class CleanCommandTest extends \PHPUnit_Framework_TestCase
 
         $display = $tester->getDisplay();
 
-        $this->assertContains(sprintf('Removed %d items from %s storage.', $expiredAccessTokens, get_class($this->accessTokenManager)), $display);
-        $this->assertContains(sprintf('Removed %d items from %s storage.', $expiredRefreshTokens, get_class($this->refreshTokenManager)), $display);
-        $this->assertContains(sprintf('Removed %d items from %s storage.', $expiredAuthCodes, get_class($this->authCodeManager)), $display);
+        $this->assertStringContainsString(sprintf('Removed %d items from %s storage.', $expiredAccessTokens, get_class($this->accessTokenManager)), $display);
+        $this->assertStringContainsString(sprintf('Removed %d items from %s storage.', $expiredRefreshTokens, get_class($this->refreshTokenManager)), $display);
+        $this->assertStringContainsString(sprintf('Removed %d items from %s storage.', $expiredAuthCodes, get_class($this->authCodeManager)), $display);
     }
 }

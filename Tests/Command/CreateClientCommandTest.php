@@ -25,14 +25,14 @@ class CreateClientCommandTest extends TestCase
     private $command;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|ClientManagerInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|ClientManagerInterface
      */
     private $clientManager;
 
     /**
      * {@inheritdoc}
      */
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->clientManager = $this->getMockBuilder(ClientManagerInterface::class)->disableOriginalConstructor()->getMock();
         $command = new CreateClientCommand($this->clientManager);
@@ -73,8 +73,8 @@ class CreateClientCommandTest extends TestCase
 
         $output = $commandTester->getDisplay();
 
-        $this->assertContains('Client ID', $output);
-        $this->assertContains('Client Secret', $output);
+        $this->assertStringContainsString('Client ID', $output);
+        $this->assertStringContainsString('Client Secret', $output);
     }
 
     /**

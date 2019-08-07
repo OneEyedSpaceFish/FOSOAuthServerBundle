@@ -21,7 +21,7 @@ class ClientManagerTest extends PropelTestCase
 
     protected $manager;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

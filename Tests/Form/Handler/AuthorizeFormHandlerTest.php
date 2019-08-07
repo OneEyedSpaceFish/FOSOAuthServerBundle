@@ -17,30 +17,30 @@ use Symfony\Component\HttpFoundation\RequestStack;
  * @package FOS\OAuthServerBundle\Tests\Form\Handler
  * @author Nikola Petkanski <nikola@petkanski.com>
  */
-class AuthorizeFormHandlerTest extends \PHPUnit_Framework_TestCase
+class AuthorizeFormHandlerTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|FormInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|FormInterface
      */
     protected $form;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|Request|RequestStack
+     * @var \PHPUnit\Framework\MockObject\MockObject|Request|RequestStack
      */
     protected $request;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|ParameterBag
+     * @var \PHPUnit\Framework\MockObject\MockObject|ParameterBag
      */
     protected $requestQuery;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|ParameterBag
+     * @var \PHPUnit\Framework\MockObject\MockObject|ParameterBag
      */
     protected $requestRequest;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|ContainerInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|ContainerInterface
      */
     protected $container;
 
@@ -49,7 +49,7 @@ class AuthorizeFormHandlerTest extends \PHPUnit_Framework_TestCase
      */
     protected $instance;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->form = $this->getMockBuilder(FormInterface::class)
             ->disableOriginalConstructor()
@@ -124,7 +124,8 @@ class AuthorizeFormHandlerTest extends \PHPUnit_Framework_TestCase
             AuthorizeFormHandler::class
         );
 
-        $this->setExpectedException(\InvalidArgumentException::class, $exceptionMessage);
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage($exceptionMessage);
 
         new AuthorizeFormHandler($this->form, new \stdClass());
     }

@@ -26,15 +26,15 @@ use FOS\OAuthServerBundle\Model\TokenInterface;
  * @package FOS\OAuthServerBundle\Tests\Entity
  * @author Nikola Petkanski <nikola@petkanski.com>
  */
-class TokenManagerTest extends \PHPUnit_Framework_TestCase
+class TokenManagerTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|EntityManagerInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|EntityManagerInterface
      */
     protected $entityManager;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|EntityRepository
+     * @var \PHPUnit\Framework\MockObject\MockObject|EntityRepository
      */
     protected $repository;
 
@@ -48,7 +48,7 @@ class TokenManagerTest extends \PHPUnit_Framework_TestCase
      */
     protected $instance;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->className = AccessToken::class;
         $this->repository = $this->getMockBuilder(EntityRepository::class)

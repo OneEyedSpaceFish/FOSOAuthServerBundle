@@ -15,14 +15,14 @@ use Symfony\Component\DependencyInjection\Reference;
  * @package FOS\OAuthServerBundle\Tests\DependencyInjection\Security\Factory
  * @author Nikola Petkanski <nikola@petkanski.com>
  */
-class OAuthFactoryTest extends \PHPUnit_Framework_TestCase
+class OAuthFactoryTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var OAuthFactory
      */
     protected $instance;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->instance = new OAuthFactory();
 

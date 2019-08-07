@@ -17,7 +17,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\Routing\Loader\XmlFileLoader;
 
-class FOSOAuthServerExtensionTest extends \PHPUnit_Framework_TestCase
+class FOSOAuthServerExtensionTest extends \PHPUnit\Framework\TestCase
 {
     public function testShouldImplementConfigurationInterface()
     {

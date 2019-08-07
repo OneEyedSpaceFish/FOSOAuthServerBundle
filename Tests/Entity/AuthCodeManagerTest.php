@@ -17,10 +17,10 @@ use FOS\OAuthServerBundle\Model\AuthCodeInterface;
  * @package FOS\OAuthServerBundle\Tests\Entity
  * @author Nikola Petkanski <nikola@petkanski.com>
  */
-class AuthCodeManagerTest extends \PHPUnit_Framework_TestCase
+class AuthCodeManagerTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|EntityManagerInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|EntityManagerInterface
      */
     protected $entityManager;
 
@@ -34,7 +34,7 @@ class AuthCodeManagerTest extends \PHPUnit_Framework_TestCase
      */
     protected $instance;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->entityManager = $this->getMockBuilder(EntityManagerInterface::class)
             ->disableOriginalConstructor()

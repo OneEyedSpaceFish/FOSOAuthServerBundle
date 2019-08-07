@@ -20,25 +20,25 @@ use Symfony\Component\Security\Core\User\UserCheckerInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
-class OAuthProviderTest extends \PHPUnit_Framework_TestCase
+class OAuthProviderTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|UserInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|UserInterface
      */
     protected $user;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|UserProviderInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|UserProviderInterface
      */
     protected $userProvider;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|OAuthProvider
+     * @var \PHPUnit\Framework\MockObject\MockObject|OAuthProvider
      */
     protected $provider;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|OAuth2
+     * @var \PHPUnit\Framework\MockObject\MockObject|OAuth2
      */
     protected $serverService;
 
@@ -47,7 +47,7 @@ class OAuthProviderTest extends \PHPUnit_Framework_TestCase
      */
     protected $userChecker;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->user = $this->getMockBuilder(UserInterface::class)
             ->disableOriginalConstructor()

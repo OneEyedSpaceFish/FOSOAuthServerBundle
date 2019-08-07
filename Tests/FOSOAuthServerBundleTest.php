@@ -10,13 +10,8 @@ use Symfony\Bundle\SecurityBundle\DependencyInjection\SecurityExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel;
 
-class FOSOAuthServerBundleTest extends \PHPUnit_Framework_TestCase
+class FOSOAuthServerBundleTest extends \PHPUnit\Framework\TestCase
 {
-    protected function setUp()
-    {
-        parent::setUp();
-    }
-
     public function testConstruction()
     {
         $bundle = new FOSOAuthServerBundle();
@@ -43,7 +38,7 @@ class FOSOAuthServerBundleTest extends \PHPUnit_Framework_TestCase
         $propertyReflection->setAccessible(true);
         $propertyReflection->setValue($bundle, '2.1.0');
 
-        /** @var ContainerBuilder|\PHPUnit_Framework_MockObject_MockObject $containerBuilder */
+        /** @var ContainerBuilder|\PHPUnit\Framework\MockObject\MockObject $containerBuilder */
         $containerBuilder = $this->getMockBuilder(ContainerBuilder::class)
             ->disableOriginalConstructor()
             ->setMethods([
@@ -53,7 +48,7 @@ class FOSOAuthServerBundleTest extends \PHPUnit_Framework_TestCase
             ->getMock()
         ;
 
-        /** @var SecurityExtension|\PHPUnit_Framework_MockObject_MockObject $securityExtension */
+        /** @var SecurityExtension|\PHPUnit\Framework\MockObject\MockObject $securityExtension */
         $securityExtension = $this->getMockBuilder(SecurityExtension::class)
             ->disableOriginalConstructor()
             ->getMock()
@@ -100,7 +95,7 @@ class FOSOAuthServerBundleTest extends \PHPUnit_Framework_TestCase
         $propertyReflection->setAccessible(true);
         $propertyReflection->setValue($bundle, '2.0.0');
 
-        /** @var ContainerBuilder|\PHPUnit_Framework_MockObject_MockObject $containerBuilder */
+        /** @var ContainerBuilder|\PHPUnit\Framework\MockObject\MockObject $containerBuilder */
         $containerBuilder = $this->getMockBuilder(ContainerBuilder::class)
             ->disableOriginalConstructor()
             ->setMethods([

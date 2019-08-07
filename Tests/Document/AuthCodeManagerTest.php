@@ -16,15 +16,15 @@ use FOS\OAuthServerBundle\Model\AuthCodeInterface;
  * @package FOS\OAuthServerBundle\Tests\Entity
  * @author Nikola Petkanski <nikola@petkanski.com>
  */
-class AuthCodeManagerTest extends \PHPUnit_Framework_TestCase
+class AuthCodeManagerTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|DocumentManager
+     * @var \PHPUnit\Framework\MockObject\MockObject|DocumentManager
      */
     protected $documentManager;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|DocumentRepository
+     * @var \PHPUnit\Framework\MockObject\MockObject|DocumentRepository
      */
     protected $repository;
 
@@ -38,7 +38,7 @@ class AuthCodeManagerTest extends \PHPUnit_Framework_TestCase
      */
     protected $instance;
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!class_exists('\Doctrine\ODM\MongoDB\DocumentManager')) {
             $this->markTestSkipped('Doctrine MongoDB ODM has to be installed for this test to run.');

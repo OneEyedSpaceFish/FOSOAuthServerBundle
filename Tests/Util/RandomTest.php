@@ -10,7 +10,7 @@ use phpmock\phpunit\PHPMock;
  *
  * @author Nikola Petkanski <nikola@petkanski.com
  */
-class RandomTest extends \PHPUnit_Framework_TestCase
+class RandomTest extends \PHPUnit\Framework\TestCase
 {
     use PHPMock;
 

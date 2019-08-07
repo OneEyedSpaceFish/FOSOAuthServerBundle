@@ -23,55 +23,55 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class AuthorizeControllerTest extends \PHPUnit_Framework_TestCase
+class AuthorizeControllerTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|RequestStack
+     * @var \PHPUnit\Framework\MockObject\MockObject|RequestStack
      */
     protected $requestStack;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|SessionInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|SessionInterface
      */
     protected $session;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|Form
+     * @var \PHPUnit\Framework\MockObject\MockObject|Form
      */
     protected $form;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|AuthorizeFormHandler
+     * @var \PHPUnit\Framework\MockObject\MockObject|AuthorizeFormHandler
      */
     protected $authorizeFormHandler;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|OAuth2
+     * @var \PHPUnit\Framework\MockObject\MockObject|OAuth2
      */
     protected $oAuth2Server;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|EngineInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|EngineInterface
      */
     protected $templateEngine;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|TokenStorageInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|TokenStorageInterface
      */
     protected $tokenStorage;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|UrlGeneratorInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|UrlGeneratorInterface
      */
     protected $router;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|ClientManagerInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|ClientManagerInterface
      */
     protected $clientManager;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|EventDispatcher
+     * @var \PHPUnit\Framework\MockObject\MockObject|EventDispatcher
      */
     protected $eventDispatcher;
 
@@ -86,31 +86,31 @@ class AuthorizeControllerTest extends \PHPUnit_Framework_TestCase
     protected $instance;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|Request
+     * @var \PHPUnit\Framework\MockObject\MockObject|Request
      */
     protected $request;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|UserInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|UserInterface
      */
     protected $user;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|ClientInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|ClientInterface
      */
     protected $client;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|OAuthEvent
+     * @var \PHPUnit\Framework\MockObject\MockObject|OAuthEvent
      */
     protected $event;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|FormView
+     * @var \PHPUnit\Framework\MockObject\MockObject|FormView
      */
     protected $formView;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->requestStack = $this->getMockBuilder(RequestStack::class)
             ->disableOriginalConstructor()
@@ -219,10 +219,8 @@ class AuthorizeControllerTest extends \PHPUnit_Framework_TestCase
             ->willReturn(null)
         ;
 
-        $this->setExpectedException(
-            AccessDeniedException::class,
-            'This user does not have access to this section.')
-        ;
+        $this->expectException(AccessDeniedException::class);
+        $this->expectExceptionMessage('This user does not have access to this section.');
 
         $this->instance->authorizeAction($this->request);
     }

@@ -18,7 +18,7 @@ use FOS\OAuthServerBundle\Model\Client;
 use FOS\OAuthServerBundle\Storage\OAuthStorage;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class OAuthStorageTest extends \PHPUnit_Framework_TestCase
+class OAuthStorageTest extends \PHPUnit\Framework\TestCase
 {
     protected $clientManager;
 
@@ -34,7 +34,7 @@ class OAuthStorageTest extends \PHPUnit_Framework_TestCase
 
     protected $storage;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->clientManager = $this->getMockBuilder('FOS\OAuthServerBundle\Model\ClientManagerInterface')
             ->disableOriginalConstructor()
@@ -88,7 +88,7 @@ class OAuthStorageTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $this->storage->checkClientCredentials($client, 'dummy');
     }
 
@@ -138,7 +138,7 @@ class OAuthStorageTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $this->storage->createAccessToken('foo', $client, new User(42), 1, 'foo bar');
     }
 
@@ -221,7 +221,7 @@ class OAuthStorageTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $this->storage->createRefreshToken('foo', $client, 42, 1, 'foo bar');
     }
 
@@ -282,7 +282,7 @@ class OAuthStorageTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
 
         $this->storage->checkRestrictedGrantType($client, 'foo');
     }
@@ -303,7 +303,7 @@ class OAuthStorageTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
 
         $this->storage->checkUserCredentials($client, 'Joe', 'baz');
     }
@@ -401,7 +401,7 @@ class OAuthStorageTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->setExpectedException('InvalidArgumentException');
+        $this->expectException('InvalidArgumentException');
         $this->storage->createAuthCode('foo', $client, 42, 'http://www.example.com/', 1, 'foo bar');
     }
 

@@ -12,10 +12,10 @@ use FOS\OAuthServerBundle\Model\ClientInterface;
  * @package FOS\OAuthServerBundle\Tests\Entity
  * @author Nikola Petkanski <nikola@petkanski.com>
  */
-class ClientManagerTest extends \PHPUnit_Framework_TestCase
+class ClientManagerTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|EntityManagerInterface
+     * @var \PHPUnit\Framework\MockObject\MockObject|EntityManagerInterface
      */
     protected $entityManager;
 
@@ -25,7 +25,7 @@ class ClientManagerTest extends \PHPUnit_Framework_TestCase
     protected $className;
 
     /**
-     * @var \PHPUnit_Framework_MockObject_MockObject|EntityRepository
+     * @var \PHPUnit\Framework\MockObject\MockObject|EntityRepository
      */
     protected $repository;
 
@@ -34,7 +34,7 @@ class ClientManagerTest extends \PHPUnit_Framework_TestCase
      */
     protected $instance;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->entityManager = $this->getMockBuilder(EntityManagerInterface::class)
             ->disableOriginalConstructor()
